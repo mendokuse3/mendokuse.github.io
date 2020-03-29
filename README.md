@@ -1,0 +1,1 @@
+# mendokuse.github.io
