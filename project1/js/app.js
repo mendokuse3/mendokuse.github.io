@@ -51,7 +51,7 @@ $(() => {
         $score.text(score);
         $missCounter.text(missCounter);
         $remainingTargets.text(remainingTargets);
-        $roundTime.text(round);
+        $round.text(round);
     }
 
     
@@ -67,23 +67,42 @@ $(() => {
 
     const $gamezone = $('#play-area');
 
-    const createTargets = () => {
-        const target = $('<div>').addClass('target');
-        target.css('background-image', `url(${pestArray[0]}`);
-
-        target.on('click', (event) => {
-            const item = event.currentTarget;
-            // clicking on image will remove the div and add a point to score while decrementing target left
-            // increment score and decrement targets left
-            score += 100;
-            remainingTargets --;
-            updateInfo();
-            item.remove();
-            
-        })
-        
-        $gamezone.append(target);
+    const randomLocationX = () => {
+        // for both x and y, the first target locatin is always at origin because .target.width is undefined/nan at the first one becasue it has not been appended
+        const width = Math.random() * ($gamezone.width() - $('.target').width());
+        console.log(Math.random()*width);
+        return width;
     }
+    
+    const randomLocationY = () => {
+        const height = Math.random() * ($gamezone.height() - $('.target').height());
+        return height;
+    }
+
+        const createTargets = () => {
+        for(let i = 0; i < remainingTargets; i++){
+            const target = $('<div>').addClass('target');
+            target.css('background-image', `url(${pestArray[0]}`);
+            target.css({
+                'top': `${randomLocationY()}px`,
+                'left': `${randomLocationX()}px`
+            })
+            target.on('click', clickTarget);
+            
+            $gamezone.append(target);
+        }
+    }
+
+    const clickTarget = event => {
+        const item = event.currentTarget;
+        // clicking on image will remove the div and add a point to score while decrementing target left
+        // increment score and decrement targets left
+        score += 100;
+        remainingTargets --;
+        updateInfo();
+        item.remove();
+    }
+
     createTargets();
 
 
