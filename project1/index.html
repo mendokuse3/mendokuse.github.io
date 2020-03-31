@@ -13,12 +13,12 @@
 
 </head>
 <body>
-    <div id="intro-modal" class="modal">
+    <!-- <div id="intro-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <p>this is an intro</p>
         </div>
-    </div>
+    </div> -->
 
 
     <header>
@@ -31,25 +31,28 @@
     <div id="game-container">
 
         <div id="play-area">
-            
         </div>
         
         <aside>
-            <div id="info">
-                <div id="score">
-                    <h2>score</h2>
+            <div id="info-container">
+                <div class="info" >
+                    <h2>Score</h2>
+                    <h3 id="score">0</h3>
                 </div>
 
-                <div id="miss-counter">
-                    <h2>missed clicks</h2>
+                <div class="info">
+                    <h2>Missed Targets</h2>
+                    <h3 id="miss-counter">0</h3>
                 </div>
 
-                <div id="remaining-targets">
-                    <h2>targets left</h2>
+                <div class="info">
+                    <h2>Targets Remaining</h2>
+                    <h3 id="remaining-targets">20</h3>
                 </div>
 
-                <div id="round">
-                    <h2>round</h2>
+                <div class="info">
+                    <h2>Round</h2>
+                    <h3 id="round">1</h3>
                 </div>
             </div>
         </aside>
@@ -59,37 +62,39 @@
     <footer>
         <div id="options-container">
             <!-- opens up a modal that explains rules -->
-            <button>Rules</button>
+            <div class="option">
+                <button id="rules">Rules</button>
+            </div>
 
             <!-- input options for customizing game settings -->
-            <div>
+            <div class="option">
                 <h2>number of popups</h2>
                 <form>
-                    <input type="number" placeholder="number of popups">
+                    <input type="number" id="popup-number" placeholder="number of popups">
                 </form>
             </div>
-            <div>
+            <div class="option">
                 <h2>intervals/delay</h2>
                 <form>
-                    <input type="number" placeholder="popup interval">
+                    <input type="number" id="popup-interval" placeholder="popup interval">
                 </form>
             </div>
-            <div>
+            <div class="option">
                 <h2>popup size</h2>
                 <form>
-                    <input type="number" placeholder="size in px">
+                    <input type="number" id="target-size" placeholder="size in px">
                 </form>
             </div>
-            <div>
+            <div class="option">
                 <h2>round timer</h2>
                 <form>
-                    <input type="number" placeholder="time in seconds">
+                    <input type="number" id="round-time" placeholder="time in seconds">
                 </form>
             </div>
-            <div>
+            <div class="option">
                 <h2>target duration</h2>
                 <form>
-                    <input type="number" placeholder="time in seconds">
+                    <input type="number" id="round-number" placeholder="time in seconds">
                 </form>
             </div>
             
