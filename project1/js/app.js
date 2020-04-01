@@ -140,6 +140,7 @@ $(() => {
     }
 
     let duration;
+    
 
     const targetDur = () => {
         const target = $('.target');
